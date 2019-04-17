@@ -1,0 +1,17 @@
+mdb-card-header{
+    background-color: #9933CC;
+}
+.info-color{
+    background-color: #9933CC;
+}
+mdb-card{
+  margin: 0 auto;
+  width: 50%;
+  
+}
+.register{
+  padding: 5%;
+}
+a{
+  margin-right: 30px;
+}

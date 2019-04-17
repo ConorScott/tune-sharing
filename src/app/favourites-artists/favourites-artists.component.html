@@ -1,0 +1,24 @@
+<div class='card-body'>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Filter by:" aria-label="Filter by:" aria-describedby="basic-addon1" [(ngModel)]='listFilter'>
+  </div>
+    <h5 class="card-text">Filtered by: {{listFilter}}</h5>
+  <div class='table-responsive'>
+      <table class='table' *ngIf='artist && artist.length'>
+         
+          <tbody>
+             <tr *ngFor='let artist of filteredArtists'>
+                 <td>
+                  <img class="artist-header-image" mat-card-image src="{{ artist.image }}" alt="artistImage">
+                 </td>
+                 <td>{{ artist.name}}</td>
+                 <td>{{ artist.listeners}}</td>
+                 <td>{{ artist.url}}</td>
+                 
+                 <td><button mat-icon-button id="remove" class="btn" (click)="deleteProduct(artist.id)">
+                     <mat-icon class="material-icons">remove_circle</mat-icon></button></td>
+             </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

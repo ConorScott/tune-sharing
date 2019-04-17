@@ -1,0 +1,87 @@
+<div class="login">
+<mdb-card>
+  <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Login</strong>
+    </h5>
+  </mdb-card-header>
+
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;" [formGroup]="form" (ngSubmit)="login()">
+
+      <!-- Email -->
+      <div class="md-form">
+        <input type="email" name="email" formControlName="email" id="materialLoginFormEmail" class="form-control" mdbInputDirective>
+        <label for="materialLoginFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" name="password" formControlName="password" id="materialLoginFormPassword" class="form-control" mdbInputDirective>
+        <label for="materialLoginFormPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <mdb-checkbox>Remember me</mdb-checkbox>
+        </div>
+        <div>
+          <!-- Forgot password -->
+          
+          <a [routerLink]="['/reset-password']" routerLinkActive="router-link-active" >Forgot password?</a>
+        
+          
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+        type="submit" (click)="login()">Sign in</button>
+
+      <!-- Register -->
+      <p>Not a member?
+        <a href="" routerLink="/signup">Register</a>
+      </p>
+
+      <!-- Social login -->
+      <p>or sign in with:</p>
+      <a class="waves-effect waves-light btn-floating social facebook" (click)="tryFacebookLogin()">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a class="waves-effect waves-light btn-floating social twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="waves-effect waves-light btn-floating social google" (click)="tryGoogleLogin()">
+        <i class="fa fa-google"></i>
+      </a>
+      <a class="waves-effect waves-light btn-floating social github">
+        <i class="fa fa-github"></i>
+      </a>
+
+    </form>
+    <!-- Form -->
+
+  </mdb-card-body>
+
+</mdb-card>
+</div>
+<!-- Material form login -->
+<footer>
+  <mat-toolbar color="primary">
+    <mat-icon>
+      <svg viewBox="0 0 24 24">
+          <path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z"/>
+      </svg>
+    </mat-icon>
+    <mat-icon>
+      <svg viewBox="0 0 24 24">
+        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+    </svg>
+    </mat-icon>
+  </mat-toolbar>
+</footer>

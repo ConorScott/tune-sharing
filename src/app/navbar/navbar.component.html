@@ -1,0 +1,68 @@
+
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="push" class="app-sidenav">
+        <mat-nav-list>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+            <h3 mat-subheader>Favourites</h3>
+                </mat-panel-title>
+          </mat-expansion-panel-header>
+            <a mat-list-item class="sidenav-link" [routerLink]="['/Album-playlist']" routerLinkActive="router-link-active"  (click)="sidenav.toggle()">
+              <mat-icon mat-list-icon>album</mat-icon>
+              <span class="title" mat-line>Albums</span>
+            </a>
+            <a mat-list-item class="sidenav-link" [routerLink]="['/Artist-playlist']" (click)="sidenav.toggle()">
+              <mat-icon mat-list-icon>people</mat-icon>
+              <span class="title" mat-line>Artists</span>
+            </a>
+            <a mat-list-item class="sidenav-link" [routerLink]="['/Track-playlist']" (click)="sidenav.toggle()">
+              <mat-icon mat-list-icon><i class="material-icons">audiotrack</i></mat-icon>
+              <span class="title" mat-line>Tracks</span>
+            </a>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+              <h3 mat-subheader>Search</h3>
+                  </mat-panel-title>
+            </mat-expansion-panel-header>
+              <a mat-list-item class="sidenav-link" [routerLink]="['/Album']" routerLinkActive="router-link-active"  (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>album</mat-icon>
+                <span class="title" mat-line>Albums</span>
+              </a>
+              <a mat-list-item class="sidenav-link" [routerLink]="['/Artist']" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>people</mat-icon>
+                <span class="title" mat-line>Artists</span>
+              </a>
+              <a mat-list-item class="sidenav-link" [routerLink]="['/Track']" (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon><i class="material-icons">audiotrack</i></mat-icon>
+                <span class="title" mat-line>Tracks</span>
+              </a>
+              </mat-expansion-panel>
+
+            
+          </mat-accordion>
+          </mat-nav-list>
+      
+    </mat-sidenav>
+      
+      <mat-toolbar color="primary">
+        <span class="fill-remaining-space">
+          <button mat-icon-button (click)="sidenav.toggle()" *ngIf="userLoggedIn()">
+            <mat-icon>menu</mat-icon>
+          </button>
+           
+         
+        </span>
+        <span class="fill-remaining-space">Tune Sharing</span>
+       
+       <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/login">Login</button>
+        <button mat-button routerLinkActive="active" *ngIf="isLoggedIn" (click)="onLogout()">Logout</button>
+        <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/signup">Register</button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+  </mat-sidenav-container>

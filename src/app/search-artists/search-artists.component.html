@@ -1,0 +1,45 @@
+<div class="search-form">
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <mat-select (selectionChange)="navigateTo($event.value)">
+        <mat-option value="Album">
+          Album
+        </mat-option>
+        <mat-option value="Artist">
+          Artist
+        </mat-option>
+        <mat-option value="Track">
+          Track
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="input" type="text" name="searchStr" [(ngModel)]="searchStr" placeholder="Search Artists"
+        (input)="searchArtists(searchStr)">
+      <button mat-button *ngIf="searchStr" matSuffix mat-icon-button aria-label="Clear" (click)="searchStr=''; reset()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-paginator #paginator [length]="totalLength"
+                 [pageSize]="limit"
+                 [pageSizeOptions]="pageLimit"
+                 >
+  </mat-paginator>
+  </mat-card>
+</div>
+
+<div *ngIf="searchResult">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-card class="artist-card" *ngFor="let artist of obs | async">
+      <mat-card-header>
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column"><strong>{{artist.name}}</strong></mat-card-title>
+        <mat-card-subtitle>Listeners: {{artist.listeners}}</mat-card-subtitle>
+      </mat-card-header>
+      <img class="artist-header-image" mat-card-image src="{{ artist.image[2]['#text'] }}" alt="artistImage">
+      <mat-card-actions>
+        <button mat-raised-button color="primary"  (click)="addArtist(artist); openSnackBar(artist.name)">Add to playlist</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
